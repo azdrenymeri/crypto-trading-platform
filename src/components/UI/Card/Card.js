@@ -3,14 +3,16 @@ import PropTypes from "prop-types";
 
 const Card = (props) => {
   return (
-    <div class="card bg-light mb-3 ">
-      <div class="card-header py-2">
+    <div className={
+      ["card","bg-light"," mb-3",
+      props.extraClasses? props.extraClasses: ''].join(" ")}>
+      <div className="card-header py-2">
          {props.icon? props.icon: null}
          &nbsp;
          {props.title} </div>
-      <div class="card-body">
+      <div className="card-body">
         {/* <h4 class="card-title">Light card title</h4> */}
-        <p class="card-text"> {props.children} </p>
+        <div className="card-text"> {props.children} </div>
       </div>
     </div>
   );
@@ -18,7 +20,8 @@ const Card = (props) => {
 
 Card.propTypes = {
   title: PropTypes.string.isRequired,
-  children: PropTypes.element.isRequired,
+  extraClasses: PropTypes.string,
+  icon: PropTypes.object
 };
 
 export default Card;

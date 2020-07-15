@@ -13,7 +13,7 @@ const layout = (props) => {
   return (
     <Aux>
       <NavigationBar />
-
+      <div className="m-3">
       <Switch>
         <Route path="/" exact>
           <Home />
@@ -27,6 +27,7 @@ const layout = (props) => {
             <About />
         </Route>
       </Switch>
+      </div>
     </Aux>
   );
 };

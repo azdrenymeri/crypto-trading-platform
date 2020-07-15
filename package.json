@@ -17,12 +17,12 @@
     "react-scripts": "3.2.0",
     "redux": "^4.0.4"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
+  "scripts": {  
+    "start": "react-app-rewired start",  
+    "build": "react-app-rewired build",  
+    "test": "react-app-rewired test --env=jsdom",  
+    "eject": "react-scripts eject"  
+},
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -37,5 +37,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.10.4",
+    "customize-cra": "^1.0.0",
+    "react-app-rewired": "^2.1.6"
   }
 }
