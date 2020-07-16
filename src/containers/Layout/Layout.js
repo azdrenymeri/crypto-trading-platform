@@ -1,26 +1,34 @@
-import React from "react";
+import React, {Component, Suspense} from "react";
 import { Switch, Route } from "react-router-dom";
 
 import Aux from "../../hoc/Aux/Aux";
+import Spinner from '../../components/UI/Spinner/Spinner';
 
 import NavigationBar from "../NavigationBar/NavigationBar";
-import TradingPlatform from "../TradingPlatform/TradingPlatform";
+
+// import TradingPlatform from "../TradingPlatform/TradingPlatform";
 import Home from "../Home/Home";
 import About from "../About/About";
 
+const AsyncTradingPlatform = React.lazy(async() => {
+    return import("../TradingPlatform/TradingPlatform");
+});
 
 const layout = (props) => {
   return (
     <Aux>
       <NavigationBar />
-      <div className="m-3">
+      <div className="d-flex vh-100" style={{padding:"1rem", paddingTop:"5rem"}}>
       <Switch>
         <Route path="/" exact>
           <Home />
         </Route>
 
         <Route path="/trading-platform">
-          <TradingPlatform />
+          <Suspense  fallback={<Spinner />}>
+          <AsyncTradingPlatform />
+          </Suspense>
+          
         </Route>
 
         <Route path="/about">

@@ -12,12 +12,14 @@ class TradingPlatform extends React.Component {
   render() {
     return (
       <Aux>
-        <div className="row">
+        <div className="row flex-grow-1 align-self-stretch">
           {/* cryptos list */}
-          <div className="col-12 col-sm-4 col-md-3">
+          <div className="col-12 col-sm-4 col-md-3 d-flex">
             <Card
               title="Crypto Currencies"
               icon={<i className="fas fa-sync"></i>}
+              extraClasses="flex-fill bd-highlight"
+              renderNoBody={true}
             >
               <CryptoCurrencies />
             </Card>
