@@ -12,14 +12,14 @@ class TradingPlatform extends React.Component {
   render() {
     return (
       <Aux>
-        <div className="row flex-grow-1 align-self-stretch">
+        <div className="row flex-grow-1 align-self-stretch" style={{height:"80% important!"}}>
           {/* cryptos list */}
-          <div className="col-12 col-sm-4 col-md-3 d-flex">
+          <div className="col-12 col-sm-4 col-md-3 d-flex h-75">
             <Card
               title="Crypto Currencies"
               icon={<i className="fas fa-sync"></i>}
               extraClasses="flex-fill bd-highlight"
-              renderNoBody={true}
+              renderNoBody
             >
               <CryptoCurrencies />
             </Card>
@@ -46,11 +46,12 @@ class TradingPlatform extends React.Component {
           </div>
 
           {/* Bottom  */}
-          <div className="col d-flex">
+          <div className="col d-flex h-25">
             <Card
               title="Trading log"
               icon={<i className="fas fa-table"></i>}
               extraClasses="flex-fill bd-highlight"
+              renderNoBody
             >
               <TradingHistory />
             </Card>
