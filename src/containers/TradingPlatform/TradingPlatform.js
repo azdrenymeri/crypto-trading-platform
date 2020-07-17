@@ -1,15 +1,18 @@
 import React from "react";
+import { withRouter } from 'react-router';
 
 import Aux from "../../hoc/Aux/Aux";
 import Card from "../../components/UI/Card/Card";
 
 import CryptoCurrencies from "./CryptoCurrencies/CryptoCurrencies";
-import Chart from "./Chart/Chart";
+import ChartContainer from './ChartContainer/ChartContainer';
 import Trader from "./Trader/Trader";
-import TradingHistory from "./TradesHistory/TradesHistory";
+import BottomSection from './BottomSection/BottomSection';
+
 
 class TradingPlatform extends React.Component {
   render() {
+    const BottomSectionWithRouter =  withRouter(BottomSection);
     return (
       <Aux>
         <div className="row flex-grow-1 align-self-stretch" style={{height:"80% important!"}}>
@@ -29,9 +32,10 @@ class TradingPlatform extends React.Component {
             <Card
               title="Charts"
               icon={<i className="far fa-chart-bar"></i>}
-              extraClasses="flex-fill bd-highlight"
+              extraClasses="flex-fill bd-highlight overflow-hidden"
+              renderNoBody
             >
-              <Chart />
+              <ChartContainer />
             </Card>
           </div>
           {/* Take action side */}
@@ -46,15 +50,18 @@ class TradingPlatform extends React.Component {
           </div>
 
           {/* Bottom  */}
-          <div className="col d-flex h-25">
-            <Card
+          <div className="col d-flex flex-column bd-highlight h-25">
+            {/* <Card
               title="Trading log"
               icon={<i className="fas fa-table"></i>}
               extraClasses="flex-fill bd-highlight"
               renderNoBody
             >
               <TradingHistory />
-            </Card>
+            </Card> */}
+
+              {/* <BottomSection /> */}
+              <BottomSectionWithRouter />
           </div>
         </div>
       </Aux>

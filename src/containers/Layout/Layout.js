@@ -1,5 +1,5 @@
-import React, {Component, Suspense} from "react";
-import { Switch, Route } from "react-router-dom";
+import React, { Suspense } from "react";
+import { Switch, Route, Redirect } from "react-router-dom";
 
 import Aux from "../../hoc/Aux/Aux";
 import Spinner from '../../components/UI/Spinner/Spinner';
@@ -27,6 +27,7 @@ const layout = (props) => {
         <Route path="/trading-platform">
           <Suspense  fallback={<Spinner />}>
           <AsyncTradingPlatform />
+          <Redirect to="/trading-platform/open-trades" />
           </Suspense>
           
         </Route>
