@@ -15,7 +15,7 @@ class CryptoCurrencies extends React.Component {
    const response = await getAllAssets();
   
    let newData = [];
-   response.data.data.map(crypto => {
+   response.data.data.forEach(crypto => {
      newData.push({
        id: crypto.id,
        rank: crypto.rank,

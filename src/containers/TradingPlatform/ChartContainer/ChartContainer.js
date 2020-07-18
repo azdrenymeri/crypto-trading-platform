@@ -1,5 +1,8 @@
 import React,{Suspense} from 'react';
 
+// import { pricesSocket } from '../../../ws/prices';  // the web socket 
+import {tradesSocket} from '../../../ws/trades';
+
 import Spinner from '../../../components/UI/Spinner/Spinner';
 // import CandleStickChart from './CandleStickChart/CandleStickChart';
 
@@ -9,6 +12,21 @@ const CandleStickChartAsync = React.lazy(() => {
 
 
 class ChartContainer extends React.Component {
+
+  componentWillMount(){
+
+    // listening on the requests from the server
+    // pricesSocket.addEventListener("message", (msg) =>{
+    //   console.log(msg.data);
+    // });
+
+    tradesSocket.addEventListener("message", (msg) => {
+      console.log(msg.data);
+    });
+
+    // close the socket connection
+    setTimeout(()=> {tradesSocket.close()}, 10000)
+  }
 
   render(){
     return (
