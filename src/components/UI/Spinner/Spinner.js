@@ -2,14 +2,20 @@ import React from "react";
 
 const Spinner = (props) => {
   return (
-    <div style={{ textAlign: "center", marginTop: "3rem" }}>
+    <div className="flex-fill align-self-center">
+    <div
+    className="bd-highlight align-self-center"  
+      style={{ textAlign: "center" }}
+      >
       <div
-        className="spinner-grow"
-        style={{ height: "3rem", width: "3rem" }}
+        className="spinner-grow text-primary"
+        style={{ height: "4rem", width: "4rem" }}
         role="status"
       >
         <span className="sr-only">Loading...</span>
       </div>
+    </div>
+
     </div>
   );
 };

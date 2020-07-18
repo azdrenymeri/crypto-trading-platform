@@ -29,9 +29,7 @@ const layout = (props) => {
           <AsyncTradingPlatform />
           <Redirect to="/trading-platform/open-trades" />
           </Suspense>
-          
         </Route>
-
         <Route path="/about">
             <About />
         </Route>

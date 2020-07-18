@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { $CombinedState } from "redux";
 
 const Card = (props) => {
   const contentWithBody = (
@@ -11,7 +10,7 @@ const Card = (props) => {
 
   return (
     <div className={
-      ["card","bg-light"," mb-3","overflow-auto",
+      ["card","bg-light"," mb-3","overflow-auto","shadow-sm",
       props.extraClasses? props.extraClasses: ''].join(" ")}>
       <div className="card-header py-2">
          {props.icon? props.icon: null}

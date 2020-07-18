@@ -29,7 +29,7 @@ class BottomSection extends React.Component {
             </NavLink>
           </li>
           <li className="nav-item">
-            <a className="nav-link disabled" href="#">
+            <a className="nav-link disabled" href="/">
               Disabled
             </a>
           </li>

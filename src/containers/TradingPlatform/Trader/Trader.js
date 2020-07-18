@@ -1,8 +1,12 @@
 import React from "react";
 
+import Balances from './Balances/Balances';
+
 class Trader extends React.Component {
   render() {
-    return <div>Take action</div>;
+    return (<div>
+        <Balances />
+    </div>)
   }
 }
 
