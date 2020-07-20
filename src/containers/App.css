@@ -25,3 +25,95 @@
   /* background: #555; */
   background: var(--blue);
 }
+
+/* custom color for crypto icons */
+.colored {
+  color: var(--blue);
+}
+
+/* Fade in transition for prices when they go up and down */
+.priceWentDown {
+  background: var(--danger);
+  -webkit-animation: fadeDown 0.6s linear forwards;
+  animation: fadeDown 0.6s linear forwards;
+}
+
+.priceWentUp {
+  background: var(--success);
+  -webkit-animation: fadeUp 0.6s linear forwards;
+  animation: fadeUp 0.6s linear forwards;
+}
+
+
+
+@keyframes fadeUp {
+  0% {
+    background-color:#d4edda;
+    color: #155724;    
+  }
+  10% {
+    background-color:#d4edda;
+    opacity: 0.9;
+    color: #155724;
+   }
+  30% {
+    background-color:#d4edda;
+    opacity: 0.8;
+    color: #155724;
+   }
+50% { 
+  background-color:#d4edda;
+  opacity: 0.8; 
+  color: #155724;
+}
+70% {
+  background-color:#d4edda;
+  opacity: 0.9; 
+  color: #155724;
+ }
+100% {
+  background-color: var(--white);
+  opacity: 1;
+  color: #495057;
+}
+}
+
+@keyframes fadeDown {
+  0% {
+    background-color:#f8d7da;
+    color: #721c24;    
+  }
+  10% {
+    background-color:#f8d7da;
+    opacity: 0.9;
+    color: #721c24;
+   }
+  30% {
+    background-color:#f8d7da;
+    opacity: 0.8;
+    color: #721c24;
+   }
+50% { 
+  background-color:#f8d7da;
+  opacity: 0.8; 
+  color: #721c24;
+}
+70% {
+  background-color:#f8d7da;
+  opacity: 0.9; 
+  color: #721c24;
+ }
+100% {
+  background-color: var(--white);
+  opacity: 1;
+  color: #495057;
+}
+}
+
+
+/* vertical line */
+.vl {
+  height: 100%;
+  border-left: 1px solid rgba(0,0,0,0.125);
+  display: inline-flex;
+}

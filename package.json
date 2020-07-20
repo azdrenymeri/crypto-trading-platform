@@ -8,6 +8,7 @@
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
     "bootswatch": "^4.5.0",
+    "cryptocurrency-icons-font": "^0.6.7",
     "dayjs": "^1.8.29",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
