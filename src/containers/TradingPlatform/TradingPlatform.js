@@ -1,6 +1,8 @@
 import React from "react";
 import { withRouter } from 'react-router';
 
+import {connect} from 'react-redux';
+
 import Aux from "../../hoc/Aux/Aux";
 import Card from "../../components/UI/Card/Card";
 
@@ -69,4 +71,4 @@ class TradingPlatform extends React.Component {
   }
 }
 
-export default TradingPlatform;
+export default connect()(TradingPlatform);
