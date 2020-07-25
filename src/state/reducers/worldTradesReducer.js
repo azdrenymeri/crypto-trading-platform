@@ -25,7 +25,8 @@ const worldTradesReducer = (state = initialState, action) => {
 
 const checkLimitAndAdd = (state, action) => {
   if (state.worldTrades.length >= 10) {
-    state.worldTrades[0] = action.payload;
+    state.worldTrades.unshift(action.payload);
+    state.worldTrades.pop();
     return [...state.worldTrades];
   } else {
     return [action.payload, ...state.worldTrades];

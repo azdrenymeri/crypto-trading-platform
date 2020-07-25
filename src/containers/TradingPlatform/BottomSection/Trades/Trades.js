@@ -1,50 +1,61 @@
 import React, { Component } from "react";
 
-import { connect } from 'react-redux';
-import { store } from '../../../../state/store/store';
-import { addNewTrade, cleanTrades } from '../../../../state/actions/worldTradesAction';
+import { connect } from "react-redux";
+import { store } from "../../../../state/store/store";
+import {
+  addNewTrade,
+  cleanTrades,
+} from "../../../../state/actions/worldTradesAction";
 
-import TradeItem from './TradeItem/TradeItem';
+import TradeItem from "./TradeItem/TradeItem";
 
-import { tradesSocket } from '../../../../ws/trades';
+import { tradesSocket } from "../../../../ws/trades";
 
 class Trades extends Component {
-
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.intervalId = 0;
+    this.state = {
+      shouldSaveData: true,
+    };
   }
 
-  componentWillMount(){
+  componentDidMount() {
     tradesSocket.addEventListener("message", this.handleTrades);
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     tradesSocket.removeEventListener("message", this.handleTrades);
-    clearInterval(this.intervalId.__id);
     store.dispatch(cleanTrades());
   }
 
-
   handleTrades = (response) => {
-    this.intervalId = setInterval(() => {
-      console.log("Interval");
+    if (this.state.shouldSaveData) {
+      this.setState({ shouldSaveData: false });
       let tradeObj = JSON.parse(response.data);
-      store.dispatch(addNewTrade(tradeObj))
-    }, 3000)
-  }
+      store.dispatch(addNewTrade(tradeObj));
+      console.log("Trades socket finished...");
+
+      setTimeout(() => {
+        console.log("Inside timeout");
+        this.setState({ shouldSaveData: true });
+      }, 4000);
+    }
+  };
 
   render() {
-
-    const data = this.props.trades.map (trade => {
+    const data = this.props.trades.map((trade, index) => {
       return (
-        <TradeItem trade={trade} />
-      )
-    })
+        <TradeItem
+          key={trade.timestamp}
+          trade={trade}
+          cssClasses={index === 0 ? "slide-in-fwd-center" : ""}
+        />
+      );
+    });
 
     return (
       <div className="bd-highlight">
-        <table className="table table-sm table-striped">
+        <table className="table table-sm table-striped table-hover">
           <thead>
             <tr>
               <th scope="col">Time</th>
@@ -55,9 +66,7 @@ class Trades extends Component {
               <th scope="col">Price in USD</th>
             </tr>
           </thead>
-          <tbody>
-              { data }
-          </tbody>
+          <tbody style={{ userSelect: "none" }}>{data}</tbody>
         </table>
       </div>
     );
@@ -65,9 +74,9 @@ class Trades extends Component {
 }
 
 const mapStateToProps = (state) => {
- return { 
-   trades: state.worldTradesReducer.worldTrades
- }
+  return {
+    trades: state.worldTradesReducer.worldTrades,
+  };
 };
 
 export default connect(mapStateToProps)(Trades);

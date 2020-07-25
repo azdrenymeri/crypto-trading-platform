@@ -1,8 +1,8 @@
 import React from 'react';
 
-const TradeItem = ({ trade }) => {
+const TradeItem = ({ trade, cssClasses }) => {
   return (
-    <tr>
+    <tr className={cssClasses? cssClasses: ''}>
       <td> {new Date(trade.timestamp).toLocaleString()} </td>
       <td> {trade.base + " / " + trade.quote} </td>
       <td> {trade.direction} </td>
