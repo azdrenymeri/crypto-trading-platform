@@ -17,17 +17,17 @@ class ChartContainer extends React.Component {
   componentWillMount(){
 
     // listening on the requests from the server
-    pricesSocket.addEventListener("message", (msg) =>{
-      console.log(msg.data);
-    });
+    // pricesSocket.addEventListener("message", (msg) =>{
+    //   console.log(msg.data);
+    // });
 
-    setTimeout(() => {pricesSocket.close()}, 5000);
+    // setTimeout(() => {pricesSocket.close()}, 5000);
     // tradesSocket.addEventListener("message", (msg) => {
     //   console.log(msg.data);
     // });
 
     // close the socket connection
-    setTimeout(()=> {tradesSocket.close()}, 10000)
+    // setTimeout(()=> {tradesSocket.close()}, 10000)
   }
 
   render(){

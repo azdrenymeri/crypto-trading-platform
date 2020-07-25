@@ -2,7 +2,7 @@ import React from "react";
 
 const CryptoItem = ({ crypto, click }) => {
   return (
-    <tr key={crypto.symbol} onClick={click}>
+    <tr key={crypto.symbol} onClick={click} id={crypto.id}>
       <td>
         <span
           className={["crypto-icon colored", crypto.symbol.toLowerCase()].join(

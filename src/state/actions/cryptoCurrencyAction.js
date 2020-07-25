@@ -1,4 +1,4 @@
-import {ADD_CRYPTO,ADD_BULK_CRYPTO , UPDATE_CRYPTO} from './constants/constants';
+import { ADD_CRYPTO,ADD_BULK_CRYPTO , UPDATE_CRYPTO, UPDATE_CRYPTO_PRICE } from './constants/constants';
 
 export const addCrypto = (crypto) => {
   return {
@@ -14,9 +14,22 @@ export const addBulkCrypto = (cryptos) => {
   }
 }
 
-export const updateCrypto = (name) => {
+export const updateCrypto = (name, crypto) => {
   return {
     type: UPDATE_CRYPTO,
-    name 
+    payload: {
+      crypto_name: name,
+      crypto
+    } 
   }
+}
+
+export const updateCryptoPrice = (name,newPrice) => {
+  return {
+    type: UPDATE_CRYPTO_PRICE,
+    payload: {
+      crypto_name: name,
+      new_price: newPrice
+    }
+  };
 }

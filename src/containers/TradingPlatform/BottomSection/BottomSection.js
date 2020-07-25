@@ -3,12 +3,13 @@ import { NavLink, Switch, Route } from "react-router-dom";
 
 import OpenTrades from "./OpenTrades/OpenTrades";
 import TradingHistory from "./TradingHistory/TradingHistory";
+import Trades from './Trades/Trades';
 
 class BottomSection extends React.Component {
   render() {
     return (
       <Fragment>
-        <ul className="nav nav-tabs  bd-highlight">
+        <ul className="nav nav-sm nav-tabs nav-tabs-sm  bd-highlight">
           <li className="nav-item">
             <NavLink
               to="/trading-platform/open-trades"
@@ -26,6 +27,15 @@ class BottomSection extends React.Component {
               activeClassName="active"
             >
               Trading History
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink
+              to="/trading-platform/trades"
+              className="nav-link"
+              activeClassName="active"
+            >
+              Trades Worldwide
             </NavLink>
           </li>
           <li className="nav-item">
@@ -61,13 +71,16 @@ class BottomSection extends React.Component {
             </div>
           </li> */}
         </ul>
-        <div className="bd-highlight overflow-auto p-2">
+        <div className="bd-highlight overflow-auto">
           <Switch>
             <Route path="/trading-platform/open-trades">
               <OpenTrades />
             </Route>
             <Route path="/trading-platform/trading-history">
               <TradingHistory />
+            </Route>
+            <Route path="/trading-platform/trades">
+              <Trades />
             </Route>
           </Switch>
         </div>

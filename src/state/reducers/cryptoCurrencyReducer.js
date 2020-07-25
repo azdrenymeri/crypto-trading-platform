@@ -1,11 +1,14 @@
-import { ADD_CRYPTO, UPDATE_CRYPTO,ADD_BULK_CRYPTO } from "../actions/constants/constants";
-import { createPortal } from "react-dom";
+import {
+  ADD_CRYPTO,
+  UPDATE_CRYPTO,
+  UPDATE_CRYPTO_PRICE,
+  ADD_BULK_CRYPTO,
+} from "../actions/constants/constants";
 
 // the initial state of the app
 const initialState = {
-  cryptos: []
+  cryptos: [],
 };
-
 
 const cryptoReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -16,22 +19,34 @@ const cryptoReducer = (state = initialState, action) => {
 
     case ADD_BULK_CRYPTO:
       return Object.assign({}, state, {
-        cryptos: action.payload
+        cryptos: action.payload,
       });
 
     case UPDATE_CRYPTO:
-      return Object.assign({} ,state,{
-        cryptos:[ ...state.cryptos.map((crypto) => {
-          if (crypto.name === action.crypto.name){
-            return action.crypto
-          }
-          return crypto;
-        })]
+      return Object.assign({}, state, {
+        cryptos: [
+          ...state.cryptos.map((crypto) => {
+            if (crypto.name === action.payload.name) {
+              return action.payload.crypto;
+            }
+            return crypto;
+          }),
+        ],
       });
-      
+    case UPDATE_CRYPTO_PRICE:
+      return Object.assign({}, state, {
+        cryptos: [
+          ...state.cryptos.map((crypto) => {
+            if (crypto.name === action.payload.crypto_name) {
+              crypto.price = action.payload.new_price;
+            }
+            return crypto;
+          }),
+        ],
+      });
     default:
       return state;
   }
 };
 
-export { cryptoReducer }
+export { cryptoReducer };
