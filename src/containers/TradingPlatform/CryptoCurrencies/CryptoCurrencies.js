@@ -30,15 +30,20 @@ class CryptoCurrencies extends React.Component {
   };
 
   triggerPriceChangeAnimation = (name, price) =>{
-    const cryptoRow = document.getElementById(name)
-    let oldPrice = parseFloat(cryptoRow.lastChild.innerText);
-    let newPrice = parseFloat(price);
-    cryptoRow.classList.add(oldPrice < newPrice ? "priceWentUp":"priceWentDown");
-    
-    // make sure to remove the classes
-    setTimeout(() => {
-      cryptoRow.classList.remove("priceWentUp", "priceWentDown");
-    }, 1000);
+    try {
+      const cryptoRow = document.getElementById(name)
+      let oldPrice = parseFloat(cryptoRow.lastChild.innerText);
+      let newPrice = parseFloat(price);
+      cryptoRow.classList.add(oldPrice < newPrice ? "priceWentUp":"priceWentDown");
+      
+      // make sure to remove the classes
+      setTimeout(() => {
+        cryptoRow.classList.remove("priceWentUp", "priceWentDown");
+      }, 1000);
+  
+    } catch(err) {
+      debugger
+    }
   }
 
   componentWillMount(){
