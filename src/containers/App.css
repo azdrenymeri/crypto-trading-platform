@@ -170,3 +170,10 @@
     opacity: 1;
   }
 }
+
+/* simple hover rule for all Svg */
+
+svg:hover {
+  color: var(--cyan);
+  cursor: pointer;
+}

@@ -54,7 +54,7 @@ class Trades extends Component {
     });
 
     return (
-      <div className="bd-highlight">
+      <div className="bd-highlight overflow-auto">
         <table className="table table-sm table-striped table-hover">
           <thead>
             <tr>
