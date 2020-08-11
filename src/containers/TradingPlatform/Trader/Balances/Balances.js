@@ -7,7 +7,7 @@ class Balances extends Component {
   render(){
     return(
       <ul className="list-group list-group-flush overflow-auto">
-        <Balance className="list-group-item-primary " currency="usd" amount="300" />
+        <Balance className="list-group-item-success" currency="usd" amount="300" />
       </ul>
     )
   }

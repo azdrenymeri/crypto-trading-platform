@@ -1,6 +1,8 @@
 This is a Crypto Currency trading platform simulation.
 Where you can create an account and start trading different crypto currencies.
 
+### [Live](https://crypto-trading-platform-20d53.firebaseapp.com/)
+
 ## Available Scripts
 
 In the project directory, you can run:
