@@ -15,6 +15,7 @@ const AsyncTradingPlatform = React.lazy(async() => {
 });
 
 const layout = (props) => {
+  console.log(process.env.TEST);
   return (
     <Aux>
       <NavigationBar />
