@@ -62,6 +62,7 @@ class NavigationBar extends Component {
                 </NavLink> 
             </li> */}
 
+{/* 
             <li className="nav-item dropdown">
                 <NavLink 
                   to="/"  
@@ -93,7 +94,29 @@ class NavigationBar extends Component {
                   Separated link
                 </a>
               </div>
-            </li>
+            </li> */}
+
+              <li className="nav-item">
+              <NavLink
+                className="nav-link"
+                activeClassName="active"
+                to="/auth/login"
+              >
+                Login
+              </NavLink>
+
+              </li>
+              <li className="nav-item">
+              <NavLink
+                className="btn btn-info my-2 my-sm-0"
+                activeClassName="btn-success"
+                to="/auth/signup"
+              >
+                Signup
+              </NavLink>
+              </li>
+
+
           </ul>
 
           {/* <form className="form-inline my-2 my-lg-0">

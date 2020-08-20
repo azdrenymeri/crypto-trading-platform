@@ -6,16 +6,15 @@ import Spinner from '../../components/UI/Spinner/Spinner';
 
 import NavigationBar from "../NavigationBar/NavigationBar";
 
-// import TradingPlatform from "../TradingPlatform/TradingPlatform";
 import Home from "../Home/Home";
 import About from "../About/About";
+import Auth from '../Auth/Auth';
 
 const AsyncTradingPlatform = React.lazy(async() => {
     return import("../TradingPlatform/TradingPlatform");
 });
 
 const layout = (props) => {
-  console.log(process.env.TEST);
   return (
     <Aux>
       <NavigationBar />
@@ -33,6 +32,12 @@ const layout = (props) => {
         </Route>
         <Route path="/about">
             <About />
+        </Route>
+        <Route path="/auth/login">
+          <Auth />
+        </Route>
+        <Route path="/auth/signup">
+          <Auth />
         </Route>
       </Switch>
       </div>
