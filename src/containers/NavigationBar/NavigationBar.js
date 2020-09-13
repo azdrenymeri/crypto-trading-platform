@@ -7,7 +7,7 @@ import avatar from "../../images/user.png";
 class NavigationBar extends Component {
   render() {
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" style={{paddingLeft:'2.5rem',paddingRight:'2.5rem'}}>
         <NavLink className="navbar-brand" to="/">
           <img
             src={logo}

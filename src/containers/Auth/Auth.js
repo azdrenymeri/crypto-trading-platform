@@ -9,9 +9,9 @@ class Auth extends Component {
 
   render(){
     return (
-      <div className="p-3 w-100 bd-highlight">
+      <div className="p-3 w-100 bd-highlight px-3">
 
-      <ul className="px-3 nav nav-tabs bd-highlight">
+      <ul className="px-3 nav nav-tabs bd-highlight px-3">
         <li className="nav-item">
           <NavLink
             to="/auth/login"
@@ -59,7 +59,7 @@ class Auth extends Component {
           </div>
         </li> */}
       </ul>
-      <div className="bd-highlight overflow-auto">
+      <div className="bd-highlight overflow-auto px-3">
         <Switch>
           <Route path="/auth/login">
             <Login />

@@ -18,7 +18,7 @@ const layout = (props) => {
   return (
     <Aux>
       <NavigationBar />
-      <div className="d-flex vh-100" style={{padding:"1rem", paddingTop:"5rem"}}>
+      <div className="d-flex vh-100" style={{padding:"1.5rem", paddingTop:"5rem"}}>
       <Switch>
         <Route path="/" exact>
           <Home />

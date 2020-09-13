@@ -45,7 +45,7 @@ class Trader extends React.Component {
             className="d-inline-block ml-2"
             style={{ verticalAlign: "middle" }}
           >
-            Crypto Currencies
+              Balances
           </div>
         </div>
         <Balances />
